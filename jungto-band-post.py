@@ -1,16 +1,11 @@
 #!/usr/bin/env python3
 import datetime
-from dotenv import load_dotenv
 import os
 import pytz
 import subprocess
 
-# Import Environment variables
-load_dotenv()
-access_token = os.getenv("ACCESS_TOKEN")
-is_prod = os.getenv("IS_PROD")
-band_key = os.getenv(
-    "BAND_KEY") if is_prod == "TRUE" else os.getenv("BAND_KEY_DEV")
+access_token = 'YOUR_BAND_ACCESS_TOKEN_HERE'
+band_key = 'YOUR_BAND_KEY_HERE'
 
 # Calculate datetime
 day_of_week = ['월', '화', '수', '목', '금', '토', '일']
@@ -41,10 +36,7 @@ payload = (
 
 # Send API Request
 def main():
-    print("------------------------------------------------------------------------")
-    print("Sending Request at:", dt_now)
-    print("Result:")
-
+    print(f'<<<<< Sending Request at: {dt_now} >>>>>')
     subprocess.call(payload, shell=True)
 
 
